@@ -145,7 +145,7 @@ def get_first_payment(message):
         bot.send_message(chat, strings.banks_available, reply_markup=district_markup())
         for item in best_banks:
             bot.send_message(chat, '\n'.join(item))
-        bot.register_next_step_handler(message, count_or_back)
+        bot.register_next_step_handler(message, count_or_back, dict())
     except ValueError:
         bot.send_message(chat, strings.try_again)
         bot.register_next_step_handler(message, get_first_payment)
